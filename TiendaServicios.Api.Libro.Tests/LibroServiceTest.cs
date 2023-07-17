@@ -18,6 +18,8 @@ namespace TiendaServicios.Api.Libro.Tests
     {
         private IEnumerable<LibreriaMaterial> ObtenerDataPrueba()
         {
+
+            //Hola aqui se obtienen data
             A.Configure<LibreriaMaterial>()
                 .Fill(x => x.Titulo).AsArticleTitle()
                 .Fill(x => x.LibreriaMaterialId, () => { return Guid.NewGuid(); });
