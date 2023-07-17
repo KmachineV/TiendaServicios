@@ -34,7 +34,7 @@ jobs:
       
     - name: Run tests
       run: dotnet test --configuration Release --no-restore --verbosity normal
-      working-directory: ./tests
+      working-directory: ./TiendaServicios.Api.Libro.Tests
       
     - name: Publish Artifact
       uses: actions/upload-artifact@v2
