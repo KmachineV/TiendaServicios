@@ -30,4 +30,14 @@ jobs:
       
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
-      working-directory: '**/*.csproj'    
+      working-directory: ./
+      
+    - name: Run tests
+      run: dotnet test --configuration Release --no-restore --verbosity normal
+      working-directory: ./TiendaServicios.Api.Libro.Tests
+      
+    - name: Publish Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Microservice-Artifact
+        path: ./publish/**/*.csproj   
