@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TiendaServicios.Api.Libro.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class ChangeTypeIdDate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,7 @@ namespace TiendaServicios.Api.Libro.Migrations
                 name: "LibreriaMaterial",
                 columns: table => new
                 {
-                    LibreriaMaterialId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LibreriaMaterialId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaPublicacion = table.Column<DateTime>(type: "datetime2", nullable: true),
                     AutorLibroGuid = table.Column<Guid>(type: "uniqueidentifier", nullable: true)

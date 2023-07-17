@@ -5,7 +5,7 @@ namespace TiendaServicios.Api.Libro.Models
     public class LibreriaMaterial
     {
         [Key]
-        public int LibreriaMaterialId { get; set; }
+        public Guid LibreriaMaterialId { get; set; }
 
         public string Titulo { get; set; }
 

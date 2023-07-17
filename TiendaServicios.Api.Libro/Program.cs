@@ -19,7 +19,7 @@ builder.Services.AddDbContext<ContextoLibreria>(options =>
 });
 
 builder.Services.AddMediatR(typeof(Nuevo.Manejador));
-builder.Services.AddAutoMapper(typeof(Consulta.ListaLibroMaterial));
+builder.Services.AddAutoMapper(typeof(Consulta.Ejecuta));
 
 
 var app = builder.Build();

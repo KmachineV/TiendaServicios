@@ -9,15 +9,15 @@ namespace TiendaServicios.Api.Libro.Applicaction
     {
         public class LibroUnico : IRequest<LibroMaterialDTO>
         {
-            public int LibroMaterialId { get; set; }
+            public Guid LibroMaterialId { get; set; }
         }
 
-        public class Majeador : IRequestHandler<LibroUnico, LibroMaterialDTO>
+        public class Manejador : IRequestHandler<LibroUnico, LibroMaterialDTO>
         {
             private readonly ContextoLibreria _contexto;
             private readonly IMapper _mapper;
 
-            public Majeador(ContextoLibreria contexto, IMapper mapper)
+            public Manejador(ContextoLibreria contexto, IMapper mapper)
             {
                 _contexto = contexto;
                 _mapper = mapper;
@@ -28,8 +28,8 @@ namespace TiendaServicios.Api.Libro.Applicaction
                 var libroMaterial = await _contexto.LibreriaMaterial.Where(a => a.LibreriaMaterialId == request.LibroMaterialId).FirstOrDefaultAsync();
                 if (libroMaterial != null)
                 {
-                    var autorDTO = _mapper.Map<LibroMaterialDTO>(libroMaterial);
-                    return autorDTO;
+                    var libroMaterialDTO = _mapper.Map<LibroMaterialDTO>(libroMaterial);
+                    return libroMaterialDTO;
                 }
 
                 throw new Exception("No existe autor con este id");

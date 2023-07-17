@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TiendaServicios.Api.Libro.Applicaction
+namespace TiendaServicios.Api.CarritoCompra.RemoteModel
 {
-    public class LibroMaterialDTO
+    public class LibroRemote
     {
-
         public Guid LibreriaMaterialId { get; set; }
 
         public string Titulo { get; set; }
@@ -12,5 +11,6 @@ namespace TiendaServicios.Api.Libro.Applicaction
         public DateTime? FechaPublicacion { get; set; }
 
         public Guid? AutorLibroGuid { get; set; }
+
     }
 }

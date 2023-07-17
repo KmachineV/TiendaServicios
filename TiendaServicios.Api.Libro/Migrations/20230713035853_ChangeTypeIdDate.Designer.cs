@@ -12,8 +12,8 @@ using TiendaServicios.Api.Libro.Persistence;
 namespace TiendaServicios.Api.Libro.Migrations
 {
     [DbContext(typeof(ContextoLibreria))]
-    [Migration("20230712042308_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230713035853_ChangeTypeIdDate")]
+    partial class ChangeTypeIdDate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,9 @@ namespace TiendaServicios.Api.Libro.Migrations
 
             modelBuilder.Entity("TiendaServicios.Api.Libro.Models.LibreriaMaterial", b =>
                 {
-                    b.Property<int>("LibreriaMaterialId")
+                    b.Property<Guid>("LibreriaMaterialId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LibreriaMaterialId"), 1L, 1);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("AutorLibroGuid")
                         .HasColumnType("uniqueidentifier");
