@@ -30,4 +30,4 @@ jobs:
       
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
-      working-directory: './**/*.csproj' 
+      working-directory: ./
