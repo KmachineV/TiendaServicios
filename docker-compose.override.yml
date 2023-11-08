@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  tiendaservicios.api.autor:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "55812:80"
+
+  tiendaservicios.api.libro:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "56557:80"
+
+
+  tiendaservicios.api.carritocompra:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Services__Libros=http://tiendaservicios.api.libro 
+    ports:
+      - "56558:80"
+       
+  tiendaservicios.api.gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on: 
+      - tiendaservicios.api.libro
+    ports:
+      - "56559:80"
+
+      
+
