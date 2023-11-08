@@ -25,13 +25,13 @@ namespace TiendaServicios.Api.Libro.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<LibroMaterialDTO>>> GetAutores()
+        public async Task<ActionResult<List<LibroMaterialDTO>>> GetLibros()
         {
             return await _mediator.Send(new Consulta.Ejecuta());
         }
 
        [HttpGet("{id}")]
-       public async Task<ActionResult<LibroMaterialDTO>> GetAutor(Guid id)
+       public async Task<ActionResult<LibroMaterialDTO>> GetLibro(Guid id)
        {
            return await _mediator.Send(new ConsultaFiltro.LibroUnico { LibroMaterialId = id });
        }
